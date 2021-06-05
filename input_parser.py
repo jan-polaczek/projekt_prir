@@ -11,12 +11,12 @@ class InputParser:
     def parse(self):
         with open(self.path, 'r') as f:
             self.process_file(f)
-        return self.edges
+        return self.edges, self.vertices
     
     def process_file(self, f):
         self.vertices = f.readline().split()
         n = len(self.vertices)
-        self.edges = np.full((n, n), math.inf, dtype='i')
+        self.edges = np.zeros((n, n), dtype='i')
         while True:
             line = f.readline()
             if not line:

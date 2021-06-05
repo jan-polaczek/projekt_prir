@@ -9,10 +9,12 @@ class MasterProcess(WorkerProcess):
         self.proc_count = proc_count
         self.input_path = input_path
         self.vertex_count = vertex_count
+        self.result = []
+        self.vertices = None
 
     def read_data(self):
         input_parser = InputParser(self.input_path)
-        self.graph = input_parser.parse()
+        self.graph, self.vertices = input_parser.parse()
 
     def initialize_random_result(self):
         not_chosen = set([i for i in range(self.vertex_count)])
@@ -22,10 +24,6 @@ class MasterProcess(WorkerProcess):
             self.result.append(v)
         self.result.append(self.result[0])
 
-    def score_result(self, result):
-        score = 0
-        for i in range(len(result) - 1):
-            v1 = result[i]
-            v2 = result[i + 1]
-            score += self.graph[v1][v2]
-        return score
+    def print_result(self):
+        path = [self.vertices[idx] for idx in self.result]
+        return ' -> '.join(path)

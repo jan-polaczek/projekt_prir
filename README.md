@@ -4,7 +4,7 @@
 Uruchamiamy przy pomocy `mpiexec -n <liczba procesów> python main.py`
 ### Opcjonalne argumenty:
  - nazwa pliku wejściowego, domyślnie 'data.dat'
- - liczba różnych miast w problemie (konieczne do zainicjowania tablic np), domyślnie 5
+ - liczba różnych miast w problemie (konieczne do zainicjowania tablic np), domyślnie 50
  
  ## Generator grafów
  Plik `graph_generator.py` służy oczywiście do wygenerowania losowego grafu. Uruchamiamy go po prostu `python graph_generator.py`.
